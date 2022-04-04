@@ -45,6 +45,18 @@ const styles = StyleSheet.create({
       bottom:0,
       marginBottom: '15%'
     },
+    logoContainer: {
+       position: 'absolute',
+       top:0,
+       marginTop: '10%',
+       display: 'flex',
+      },
+      logoLeftText: {
+        color: 'white',
+        padding: 10,
+        borderRightWidth: '2px',
+        borderRightColor: 'gold',
+       },
   });
 
   export {styles}
