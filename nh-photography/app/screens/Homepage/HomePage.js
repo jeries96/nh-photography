@@ -1,9 +1,9 @@
 import {ImageBackground, Text, View, KeyboardAvoidingView, TouchableOpacity } from 'react-native';
-import { styles } from "./loginStyle";
+import { styles } from "./HomePageStyle";
 
 const image = require("../../../assets/nhh.jpg");
 
-export default function Login() {
+export default function HomePage() {
   const signIn = () => { 
       /*
         This function handles sign in

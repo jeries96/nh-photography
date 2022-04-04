@@ -1,10 +1,10 @@
 import { StyleSheet, View } from 'react-native';
-import Login from './app/screens/Login/login';
+import HomePage from './app/screens/Homepage/HomePage';
  
 export default function App() {
   return (
     <View style={styles.container}>
-      <Login />
+      <HomePage />
     </View>
   );
 }
