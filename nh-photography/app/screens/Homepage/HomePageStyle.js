@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+// import {UbuntuMono_400Regular} from "@expo-google-fonts/dev";
 
 const styles = StyleSheet.create({
     container: {
@@ -8,7 +9,9 @@ const styles = StyleSheet.create({
     },
     text : {
         color: 'white',
-        textAlign: 'center'
+        textAlign: 'center',
+        fontSize: 16,
+        // fontFamily: UbuntuMono_400Regular,
     },
     buttonsContainer: {
       width: '65%',
@@ -19,21 +22,24 @@ const styles = StyleSheet.create({
     },
     buttons:{
       width: '100%',
-      borderRadius: 15,
+      height: '40px',
+      borderRadius: 30,
       padding:12,
-      margin: 10,
+      margin: 5,
+      textAlign: 'center',
+      justifyContent: 'center',
+      alignItems: 'center',
     },
     loginButton: {
-      backgroundColor: 'rgb(197,179,88)'
+      backgroundColor: '#A99449'
     },
     registerButton:{
-      backgroundColor: 'grey',
-      opacity: 0.9,
-      marginTop: 10,
+      backgroundColor: 'rgba(255, 255, 255, 0.2)',
+      marginTop: 5,
     },
     boldText: {
       fontWeight: '700',
-      fontSize: 14,
+      fontSize: 16,
     },
     image: {
       flex: 1,
@@ -47,16 +53,9 @@ const styles = StyleSheet.create({
     },
     logoContainer: {
        position: 'absolute',
-       top:0,
-       marginTop: '10%',
-       display: 'flex',
+       top:100,
       },
-      logoLeftText: {
-        color: 'white',
-        padding: 10,
-        borderRightWidth: '2px',
-        borderRightColor: 'gold',
-       },
+
   });
 
   export {styles}
