@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
       margin: 10,
     },
     buttonsContainer: {
-      width: '80%',
+      width: '76%',
       justifyContent: 'center',
       alignItems: 'center',
       marginTop: 40,
@@ -69,6 +69,8 @@ const styles = StyleSheet.create({
         position: 'absolute',
         left: 50,
         top: 50,
+        backgroundColor: 'rgba(255, 255, 255, 0.1)',
+        borderRadius: 50,
       }
   });
 
