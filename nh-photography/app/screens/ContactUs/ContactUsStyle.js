@@ -3,9 +3,9 @@ import { StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
     container: {
       flex:1,
-      // justifyContent: 'center',
-      top: 200,
+      top: 307,
       alignItems: 'center',
+      textAlign: 'center'
     },
     image: {
       flex: 1,
@@ -14,16 +14,18 @@ const styles = StyleSheet.create({
     },
     logoContainer: {
         position: 'absolute',
-        bottom: '35%',
+        top: '40%',
     },
     headingContainer : {
-      width: '80%',
+      width: '90%',
       textAlign: 'center',
     },
     headingText: {
       fontWeight: '700',
       fontSize: 34,
+      fontWeight: 'bold',
       color: 'white',
+      textAlign:'center',
     },
     infoText: {
       fontWeight: '200',
@@ -31,30 +33,34 @@ const styles = StyleSheet.create({
       color: 'white',
     },
     backWardIcon: {
-        width: '30px',
-        height: '30px',
-        position: 'absolute',
-        left: 50,
-        top: 50,
-        backgroundColor: 'rgba(255, 255, 255, 0.1)',
-        borderRadius: 50,
+      width: 30,
+      height: 30,
+      position: 'absolute',
+      left: 45,
+      top: 58,
+      backgroundColor: 'rgba(255, 255, 255, 0.1)',
+      borderRadius: 50,
       },
-      flexcontainer: {
-        flex: 3, 
-        flexDirection: 'row', 
-        width: '80%', 
-        justifyContent: 'space-around',
-        margin: 50,
+    flexcontainer: {
+      flex: 3, 
+      flexDirection: 'row', 
+      width: '90%', 
+      justifyContent: 'space-evenly',
+      margin: 50,
       },
-      box1: {
-        width: 50,
-        height: 50,
-        alignItems: 'center'
+    box1: {
+      width: 100,
+      alignItems: 'center',
       },
-      iconsText: {
-        textAlign: 'center',
-        color: 'white',
-        fontSize: 10,
+    iconsImages: {
+      width: 50,
+      height: 50,
+      },
+    iconsText: {
+      // textAlign: 'center',
+      color: 'white',
+      fontSize: 10,
+      padding: 10,
       },
   });
 

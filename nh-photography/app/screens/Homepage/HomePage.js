@@ -3,24 +3,21 @@ import { styles } from "./HomePageStyle";
 
 const backGroundImage = require("../../../assets/Background.png");
 const logo = require("../../../assets/NHLogo.png");
-export default function HomePage() {
 
-  const signIn = () => { 
+export default function HomePage( {navigation} ) {
+
+  const goToGetMyPhotos = () => { 
       /*
         This function handles sign in
           - Sign in the user If cardentials correct ! 
           - Throws an unvalid cordentials error If the cardentials is unvalid!
       */
-    fetch('https://demo.parklolo.com/api/ping')
-      .then(response => response.json())
-      .then(data => console.log(data));
+      navigation.replace('Login')
 }
 
   const goToContactUs = () => { 
     // This function navigates the user to contact us screen
-    fetch('https://demo.parklolo.com/api/ping')
-      .then(response => response.json())
-      .then(data => console.log(data));
+    navigation.replace('ContactUs')
 }
 
   return (
@@ -37,12 +34,12 @@ export default function HomePage() {
             
             <View style={styles.buttonsContainer}>
                
-                  <TouchableOpacity style={[styles.buttons, styles.loginButton]}>
-                      <Text style={[styles.boldText, styles.text]} onPress={signIn}> GET MY PHOTOS </Text>
+                  <TouchableOpacity style={[styles.buttons, styles.loginButton]} onPress={goToGetMyPhotos}>
+                      <Text style={[styles.boldText, styles.text]}> GET MY PHOTOS </Text>
                   </TouchableOpacity>
 
-                  <TouchableOpacity style={[styles.buttons, styles.registerButton]}>
-                      <Text style={styles.text} onPress={goToContactUs}> Contact us </Text>
+                  <TouchableOpacity style={[styles.buttons, styles.registerButton]} onPress={goToContactUs}>
+                      <Text style={styles.text}> Contact us </Text>
                   </TouchableOpacity>
              </View> 
 

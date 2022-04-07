@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
     },
     buttons:{
       width: '100%',
-      height: '40px',
+      height: 40,
       borderRadius: 30,
       padding:12,
       margin: 5,
