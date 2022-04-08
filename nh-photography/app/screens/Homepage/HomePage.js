@@ -1,10 +1,17 @@
 import {ImageBackground, Image, Text, View, KeyboardAvoidingView, TouchableOpacity } from 'react-native';
 import { styles } from "./HomePageStyle";
+import { OpenSans_300Light, OpenSans_700Bold} from '@expo-google-fonts/open-sans'
+import { useFonts } from 'expo-font';
+import AppLoading from 'expo-app-loading';
 
 const backGroundImage = require("../../../assets/Background.png");
 const logo = require("../../../assets/NHLogo.png");
 
 export default function HomePage( {navigation} ) {
+ 
+ // Using Open sans font
+ let [fontsLoaded, error] = useFonts({ OpenSans_300Light, OpenSans_700Bold })
+ if (!fontsLoaded) { return <AppLoading /> }
 
   const goToGetMyPhotos = () => { 
       /*
@@ -35,16 +42,32 @@ export default function HomePage( {navigation} ) {
             <View style={styles.buttonsContainer}>
                
                   <TouchableOpacity style={[styles.buttons, styles.loginButton]} onPress={goToGetMyPhotos}>
-                      <Text style={[styles.boldText, styles.text]}> GET MY PHOTOS </Text>
+                      <Text style={[{ fontFamily: 'OpenSans_300Light', 
+                                      fontWeight: '300',
+                                      fontSize: 16,
+                                      color: 'white',
+                                      letterSpacing: 0.02,
+                                      textAlign:'center',
+                                      fontStyle: 'normal'}]}> GET MY PHOTOS </Text>
                   </TouchableOpacity>
 
                   <TouchableOpacity style={[styles.buttons, styles.registerButton]} onPress={goToContactUs}>
-                      <Text style={styles.text}> Contact us </Text>
+                      <Text style={[{ fontFamily: 'OpenSans_700Bold', 
+                                      fontSize: 16,
+                                      color: 'white',
+                                      letterSpacing: 0.02,
+                                      textAlign:'center',
+                                      fontStyle: 'normal'}]}> Contact us </Text>
                   </TouchableOpacity>
              </View> 
 
              <View style={styles.versionContainer}>
-                 <Text style={styles.text}> Version 0.1 </Text>
+                 <Text style={{ fontFamily: 'OpenSans_300Light', 
+                                fontSize: 16,
+                                color: 'white',
+                                letterSpacing: 0.02,
+                                textAlign:'center',
+                                fontStyle: 'normal'}}> Version 0.1 </Text>
              </View>
 
             

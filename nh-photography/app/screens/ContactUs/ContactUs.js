@@ -1,26 +1,6 @@
-
-import { Text, 
-        View, 
-        KeyboardAvoidingView, 
-        ImageBackground, 
-        Image, 
-        TouchableOpacity } from 'react-native';
+import { Text, View, KeyboardAvoidingView, ImageBackground, Image, TouchableOpacity } from 'react-native';
 import { styles } from "./ContactUsStyle";
-import { 
-  Roboto_100Thin,
-  Roboto_100Thin_Italic,
-  Roboto_300Light,
-  Roboto_300Light_Italic,
-  Roboto_400Regular,
-  Roboto_400Regular_Italic,
-  Roboto_500Medium,
-  Roboto_500Medium_Italic,
-  Roboto_700Bold,
-  Roboto_700Bold_Italic,
-  Roboto_900Black,
-  Roboto_900Black_Italic 
-} from '@expo-google-fonts/roboto';
-
+import { OpenSans_300Light} from '@expo-google-fonts/open-sans'
 import { useFonts } from 'expo-font';
 import AppLoading from 'expo-app-loading';
 
@@ -32,80 +12,67 @@ const instaLogo = require("../../../assets/insta.png");
 const fbLogo = require("../../../assets/facebookk.png");
 
 export default function ContactUs( {navigation}) {
-  
+  // Using Open sans font
+  let [fontsLoaded, error] = useFonts({ OpenSans_300Light })
+  if (!fontsLoaded) { return <AppLoading /> }
+
   const goBack = () => { 
-    /*
-      This function navigates the user back to homepage screen
-    */
+    // This function navigates the user back to homepage screen
     navigation.replace('Home')
 }
-
-  let [fontsLoaded, error] = useFonts({
-    Roboto_100Thin,
-    Roboto_100Thin_Italic,
-    Roboto_300Light,
-    Roboto_300Light_Italic,
-    Roboto_400Regular,
-    Roboto_400Regular_Italic,
-    Roboto_500Medium,
-    Roboto_500Medium_Italic,
-    Roboto_700Bold,
-    Roboto_700Bold_Italic,
-    Roboto_900Black,
-    Roboto_900Black_Italic 
-  })
-
-  if (!fontsLoaded) {
-      return <AppLoading />
-  }
 
   return (
     <ImageBackground source={backGroundImage} resizeMode="cover" style={styles.image}> 
              
              <TouchableOpacity onPressIn={() => goBack()}>
-                <Image source={backward} style = {styles.backWardIcon}/>
+                <Image source={backward} style={styles.backWardIcon}/>
              </TouchableOpacity>
 
-        <KeyboardAvoidingView style={styles.container} behavior="padding">
+        <KeyboardAvoidingView style={styles.mainScreenContainer} behavior="padding">
 
-
+          <View style={styles.contactUsContainer}>
+             
              <View style={styles.headingContainer}>
                  <Text style={{
-                              fontFamily: 'Roboto_700Bold', 
-                              fontWeight: '700',
-                              fontSize: 34,
+                              fontFamily: 'OpenSans_300Light', 
+                              fontWeight: '300',
+                              fontSize: 33,
                               color: 'white',
-                              fontWeight: 'bold',
+                              letterSpacing: 0.02,
                               textAlign:'center',
                               fontStyle: 'normal'}}> CONTACT US </Text>
                  
                  <Text style={{
-                              fontFamily: 'Roboto_400Regular', 
-                              fontSize: 12,
+                              fontFamily: 'OpenSans_300Light', 
+                              fontWeight: '300',
+                              fontSize: 11,
                               color: 'white',
+                              letterSpacing: 0.01,
                               textAlign:'center',
                               fontStyle: 'normal',
                               }}> let’s get in touch in a way that you’re comfortable with </Text>
              </View>
              
-             <View style={styles.flexcontainer}>
+             <View style={styles.socialIConsContainer}>
                 
-                <View style={styles.box1}>
-                  <Image source={phoneLogo} style={styles.iconsImages}/>
+                <View style={styles.iconWrapper}>
+                  <Image source={phoneLogo} style={styles.icon}/>
                   <Text style={styles.iconsText}> Phone</Text>
                 </View>
         
-                <View style={styles.box1}>
-                 <Image source={instaLogo} style={styles.iconsImages}/>
+                <View style={styles.iconWrapper}>
+                 <Image source={instaLogo} style={styles.icon}/>
                  <Text style={styles.iconsText}> Instgram</Text>
                 </View>
 
-                <View style={styles.box1}>
-                  <Image source={fbLogo} style={styles.iconsImages}/>
+                <View style={styles.iconWrapper}>
+                  <Image source={fbLogo} style={styles.icon}/>
                   <Text style={styles.iconsText}>  Facebook </Text>
                 </View>
 
              </View>
+
+          </View>
             
 
              <View style={styles.logoContainer}>
@@ -115,6 +82,7 @@ export default function ContactUs( {navigation}) {
                 </View>
             
              </View>
+
         </KeyboardAvoidingView>
 
     </ImageBackground>

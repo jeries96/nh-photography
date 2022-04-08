@@ -1,12 +1,21 @@
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
-    container: {
+    mainScreenContainer: {
       flex:1,
-      top: 307,
       alignItems: 'center',
-      textAlign: 'center'
+      textAlign: 'center',
+      justifyContent: 'center',
     },
+    backWardIcon: {
+      width: 30,
+      height: 30,
+      position: 'absolute',
+      left: '12%',
+      top: 58,
+      backgroundColor: 'rgba(255, 255, 255, 0.1)',
+      borderRadius: 50,
+      },
     image: {
       flex: 1,
       resizeMode: 'cover',
@@ -14,50 +23,35 @@ const styles = StyleSheet.create({
     },
     logoContainer: {
         position: 'absolute',
-        top: '40%',
+        bottom: '10%',
+    },
+    contactUsContainer: {
+      alignItems: 'center',
+      textAlign: 'center',
+      justifyContent: 'center',
     },
     headingContainer : {
       width: '90%',
       textAlign: 'center',
     },
-    headingText: {
-      fontWeight: '700',
-      fontSize: 34,
-      fontWeight: 'bold',
-      color: 'white',
-      textAlign:'center',
-    },
-    infoText: {
-      fontWeight: '200',
-      fontSize: 12,
-      color: 'white',
-    },
-    backWardIcon: {
-      width: 30,
-      height: 30,
-      position: 'absolute',
-      left: 45,
-      top: 58,
-      backgroundColor: 'rgba(255, 255, 255, 0.1)',
-      borderRadius: 50,
-      },
-    flexcontainer: {
-      flex: 3, 
+    
+    // Icons styles 
+    socialIConsContainer: {
+      // flex: 1, 
       flexDirection: 'row', 
-      width: '90%', 
+      width: '80%',
       justifyContent: 'space-evenly',
-      margin: 50,
+      margin: '20%',
       },
-    box1: {
+    iconWrapper: {
       width: 100,
       alignItems: 'center',
       },
-    iconsImages: {
+    icon: {
       width: 50,
       height: 50,
       },
     iconsText: {
-      // textAlign: 'center',
       color: 'white',
       fontSize: 10,
       padding: 10,
