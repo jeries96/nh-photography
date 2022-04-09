@@ -15,16 +15,16 @@ export default function HomePage( {navigation} ) {
 
   const goToGetMyPhotos = () => { 
       /*
-        This function handles sign in
+        This function handles sign in:
           - Sign in the user If cardentials correct ! 
           - Throws an unvalid cordentials error If the cardentials is unvalid!
       */
-      navigation.replace('Login')
+      navigation.navigate('Login')
 }
 
   const goToContactUs = () => { 
-    // This function navigates the user to contact us screen
-    navigation.replace('ContactUs')
+      // This function navigates the user to contact us screen
+      navigation.navigate('ContactUs')
 }
 
   return (
@@ -59,7 +59,8 @@ export default function HomePage( {navigation} ) {
                                       textAlign:'center',
                                       fontStyle: 'normal'}]}> Contact us </Text>
                   </TouchableOpacity>
-             </View> 
+
+            </View> 
 
              <View style={styles.versionContainer}>
                  <Text style={{ fontFamily: 'OpenSans_300Light', 

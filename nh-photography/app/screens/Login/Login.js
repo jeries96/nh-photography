@@ -1,4 +1,4 @@
-import { Text, View, KeyboardAvoidingView, TextInput, TouchableOpacity, ImageBackground, Image } from 'react-native';
+import { Button,Text, View, KeyboardAvoidingView, TextInput, TouchableOpacity, ImageBackground, Image } from 'react-native';
 import { styles } from "./LoginStyle";
 import { OpenSans_300Light, OpenSans_700Bold} from '@expo-google-fonts/open-sans'
 import { useFonts } from 'expo-font';
@@ -16,21 +16,25 @@ export default function Login({ navigation }) {
   let [fontsLoaded, error] = useFonts({ OpenSans_300Light, OpenSans_700Bold })
   if (!fontsLoaded) { return <AppLoading /> }
 
-  const goBack = () => { 
-    // This function navigates the user back to homepage screen
-    navigation.replace('Home')
-}
+
+//   const goBack = () => { 
+//     // This function navigates the user back to homepage screen
+//     navigation.goBack()
+// }
 
   // const login = () => {
-  //   fetch('/api/users/login', {
+  //   console.log(email, password)
+  //   fetch('https://demo.parklolo.com/api/login', {
   //     method: "POST",
-  //     body: JSON.stringify({ email, password }),
+  //     body: JSON.stringify({identifier:'admin', password:'admin'}),
   //     headers: {
   //         "Content-Type": "application/json",
   //     },
   // })
   //     .then((res) => res.json())
   //     .then((data) => {
+  //       console.log(data)
+  //       SecureStore.getItemAsync(data.accessToken);
   //         if (data.token) {
   //           const token = await SecureStore.getItemAsync('secure_token');
 
@@ -44,20 +48,22 @@ export default function Login({ navigation }) {
   return (
     <ImageBackground source={backGroundImage} resizeMode="cover" style={styles.image}> 
              
-             <TouchableOpacity onPressIn={() => goBack()}>
-                <Image source={backward} style={styles.backWardIcon}/>
-             </TouchableOpacity>
+            <TouchableOpacity onPress={() => navigation.goBack()}>
+               <Image source={backward} style={styles.backWardIcon}/>
+            </TouchableOpacity>
         
         <KeyboardAvoidingView style={styles.container} behavior="padding">
-
-
+        
+        <View style={styles.loginWrapper}>
              <View style={styles.headingContainer}>
+                 
                  <Text style={{
                               fontFamily: 'OpenSans_300Light', 
                               fontSize: 33,
                               color: 'white',
                               textAlign:'left',
                               fontStyle: 'normal'}}> SIGN IN </Text>
+                 
                  <Text style={{
                               fontFamily: 'OpenSans_300Light', 
                               fontSize: 11,
@@ -69,8 +75,9 @@ export default function Login({ navigation }) {
              
              <View style={styles.inputContainer}>
 
-               <TextInput placeholder='Email' style={styles.input}/>
+               <TextInput placeholder='Email' style={styles.input} />
                <TextInput placeholder='Password' style={styles.input} secureTextEntry />
+
 
              </View>
 
@@ -81,6 +88,7 @@ export default function Login({ navigation }) {
                </TouchableOpacity>
 
              </View>
+        </View>
 
              <View style={styles.logoContainer}>
               

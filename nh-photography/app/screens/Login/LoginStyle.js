@@ -3,9 +3,14 @@ import { StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
     container: {
       flex:1,
-    //   justifyContent: 'center',
-      top: 200,
+      justifyContent: 'center',
       alignItems: 'center',
+    },
+    loginWrapper: {
+      justifyContent: 'center',
+      position:'relative',
+      alignItems: 'center',
+      width: '100%'
     },
     inputContainer: {
       width: '90%',
@@ -13,7 +18,6 @@ const styles = StyleSheet.create({
     input: {
       backgroundColor: 'rgba(255, 255, 255, 0.2)',
       paddingHorizontal: 12,
-      // paddingVertical: 12,
       color: 'white',
       borderRadius: 30,
       margin: 10,
@@ -49,7 +53,7 @@ const styles = StyleSheet.create({
     },
     logoContainer: {
         position: 'absolute',
-        bottom: '35%',
+        bottom: '10%',
     },
     headingText: {
       fontWeight: '700',
@@ -74,6 +78,7 @@ const styles = StyleSheet.create({
         top: 58,
         backgroundColor: 'rgba(255, 255, 255, 0.1)',
         borderRadius: 50,
+        
       }
   });
 

@@ -16,20 +16,18 @@ export default function ContactUs( {navigation}) {
   let [fontsLoaded, error] = useFonts({ OpenSans_300Light })
   if (!fontsLoaded) { return <AppLoading /> }
 
-  const goBack = () => { 
-    // This function navigates the user back to homepage screen
-    navigation.replace('Home')
-}
-
   return (
     <ImageBackground source={backGroundImage} resizeMode="cover" style={styles.image}> 
              
-             <TouchableOpacity onPressIn={() => goBack()}>
-                <Image source={backward} style={styles.backWardIcon}/>
-             </TouchableOpacity>
-
+        <View style={styles.backButtonWrapper}>
+          <TouchableOpacity  onPress={() => navigation.goBack()}>
+             <Image source={backward} style={styles.backWardIcon}/>
+          </TouchableOpacity>
+        </View>
+        
         <KeyboardAvoidingView style={styles.mainScreenContainer} behavior="padding">
-
+ 
+          
           <View style={styles.contactUsContainer}>
              
              <View style={styles.headingContainer}>
@@ -56,7 +54,7 @@ export default function ContactUs( {navigation}) {
              <View style={styles.socialIConsContainer}>
                 
                 <View style={styles.iconWrapper}>
-                  <Image source={phoneLogo} style={styles.icon}/>
+                  <Image source={phoneLogo} style={styles.icon} />
                   <Text style={styles.iconsText}> Phone</Text>
                 </View>
         
@@ -73,17 +71,16 @@ export default function ContactUs( {navigation}) {
              </View>
 
           </View>
-            
 
-             <View style={styles.logoContainer}>
+        </KeyboardAvoidingView> 
+        
+        <View style={styles.logoContainer}>
               
-                <View>
-                  <Image source={logo} style = {{ width: 150, height: 50 }}/>
-                </View>
-            
-             </View>
-
-        </KeyboardAvoidingView>
+              <View>
+                <Image source={logo} style = {{ width: 150, height: 50 }}/>
+              </View>
+          
+        </View>
 
     </ImageBackground>
   );
