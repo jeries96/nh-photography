@@ -1,5 +1,6 @@
 import { Text, View, KeyboardAvoidingView, ImageBackground, Image, TouchableOpacity } from 'react-native';
 import { styles } from "./ContactUsStyle";
+import { baseStyle } from "../baseStyle/baseStyle";
 import { OpenSans_300Light} from '@expo-google-fonts/open-sans'
 import { useFonts } from 'expo-font';
 import AppLoading from 'expo-app-loading';
@@ -17,15 +18,15 @@ export default function ContactUs( {navigation}) {
   if (!fontsLoaded) { return <AppLoading /> }
 
   return (
-    <ImageBackground source={backGroundImage} resizeMode="cover" style={styles.image}> 
+    <ImageBackground source={backGroundImage} resizeMode="cover" style={baseStyle.image}> 
              
-        <View style={styles.backButtonWrapper}>
+        <View style={baseStyle.backButtonWrapper}>
           <TouchableOpacity  onPress={() => navigation.goBack()}>
-             <Image source={backward} style={styles.backWardIcon}/>
+             <Image source={backward} style={baseStyle.backWardIcon}/>
           </TouchableOpacity>
         </View>
         
-        <KeyboardAvoidingView style={styles.mainScreenContainer} behavior="padding">
+        <KeyboardAvoidingView style={baseStyle.mainScreenContainer} behavior="padding">
  
           
           <View style={styles.contactUsContainer}>
@@ -74,7 +75,7 @@ export default function ContactUs( {navigation}) {
 
         </KeyboardAvoidingView> 
         
-        <View style={styles.logoContainer}>
+        <View style={baseStyle.logoContainer}>
               
               <View>
                 <Image source={logo} style = {{ width: 150, height: 50 }}/>

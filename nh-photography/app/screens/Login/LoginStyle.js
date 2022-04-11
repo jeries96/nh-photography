@@ -1,19 +1,19 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Dimensions } from 'react-native';
+
+var height = Dimensions.get("window").height;
+var width = Dimensions.get("window").width;
 
 const styles = StyleSheet.create({
-    container: {
-      flex:1,
-      justifyContent: 'center',
-      alignItems: 'center',
-    },
     loginWrapper: {
       justifyContent: 'center',
-      position:'relative',
+      position: 'relative',
       alignItems: 'center',
-      width: '100%'
+      width: '100%',
+      bottom: '30%',
     },
     inputContainer: {
       width: '90%',
+      flexDirection: 'column',
     },
     input: {
       backgroundColor: 'rgba(255, 255, 255, 0.2)',
@@ -46,40 +46,13 @@ const styles = StyleSheet.create({
       color: 'white',
       textAlign: 'center',
     },
-    image: {
-      flex: 1,
-      resizeMode: 'cover',
-      justifyContent: 'center',
-    },
-    logoContainer: {
-        position: 'absolute',
-        bottom: '10%',
-    },
-    headingText: {
-      fontWeight: '700',
-      fontSize: 34,
-      color: 'white',
-    },
-    infoText: {
-      fontWeight: '200',
-      fontSize: 12,
-      color: 'white',
-    },
+    
     headingContainer : {
         width: '85%',
         textAlign: 'center',
         margin: 20,
       },
-      backWardIcon: {
-        width: 30,
-        height: 30,
-        position: 'absolute',
-        left: 45,
-        top: 58,
-        backgroundColor: 'rgba(255, 255, 255, 0.1)',
-        borderRadius: 50,
-        
-      }
+
   });
 
   export {styles}

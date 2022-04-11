@@ -1,9 +1,11 @@
-import { Button,Text, View, KeyboardAvoidingView, TextInput, TouchableOpacity, ImageBackground, Image } from 'react-native';
+import { Text, View, KeyboardAvoidingView, TextInput, TouchableOpacity, ImageBackground, Image } from 'react-native';
 import { styles } from "./LoginStyle";
+import { baseStyle } from "../baseStyle/baseStyle";
+import { useState } from 'react';
+
 import { OpenSans_300Light, OpenSans_700Bold} from '@expo-google-fonts/open-sans'
 import { useFonts } from 'expo-font';
 import AppLoading from 'expo-app-loading';
-import {SecureStore} from 'expo';
 
 
 const backGroundImage = require("../../../assets/signInBackground.png");
@@ -12,19 +14,18 @@ const backward = require("../../../assets/back.png");
 
 
 export default function Login({ navigation }) {
+  
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
 
   let [fontsLoaded, error] = useFonts({ OpenSans_300Light, OpenSans_700Bold })
   if (!fontsLoaded) { return <AppLoading /> }
 
-
-//   const goBack = () => { 
-//     // This function navigates the user back to homepage screen
-//     navigation.goBack()
 // }
 
   // const login = () => {
-  //   console.log(email, password)
-  //   fetch('https://demo.parklolo.com/api/login', {
+    
+  // fetch('https://demo.parklolo.com/api/login', {
   //     method: "POST",
   //     body: JSON.stringify({identifier:'admin', password:'admin'}),
   //     headers: {
@@ -33,26 +34,24 @@ export default function Login({ navigation }) {
   // })
   //     .then((res) => res.json())
   //     .then((data) => {
-  //       console.log(data)
-  //       SecureStore.getItemAsync(data.accessToken);
-  //         if (data.token) {
-  //           const token = await SecureStore.getItemAsync('secure_token');
+  //           await SecureStore.setItemAsync('secure_token', data.accessToken);
+  //           await SecureStore.getItemAsync('secure_token');
 
   //         }
-  //         else {
-  //             alert('wrong password / username')
-  //         }
-  //     });
+       
+  //     );
   // }
 
   return (
-    <ImageBackground source={backGroundImage} resizeMode="cover" style={styles.image}> 
+    <ImageBackground source={backGroundImage} resizeMode="cover" style={baseStyle.image}> 
              
-            <TouchableOpacity onPress={() => navigation.goBack()}>
-               <Image source={backward} style={styles.backWardIcon}/>
+        <View style={baseStyle.backButtonWrapper}>
+            <TouchableOpacity  onPress={() => navigation.goBack()}>
+               <Image source={backward} style={baseStyle.backWardIcon}/>
             </TouchableOpacity>
+        </View>
         
-        <KeyboardAvoidingView style={styles.container} behavior="padding">
+        <KeyboardAvoidingView style={styles.mainScreenContainer} behavior="padding">
         
         <View style={styles.loginWrapper}>
              <View style={styles.headingContainer}>
@@ -75,29 +74,30 @@ export default function Login({ navigation }) {
              
              <View style={styles.inputContainer}>
 
-               <TextInput placeholder='Email' style={styles.input} />
-               <TextInput placeholder='Password' style={styles.input} secureTextEntry />
+               <TextInput placeholder='Email'  placeholderTextColor="grey" style={styles.input} onChangeText={(email) => setEmail(email)} />
+               <TextInput placeholder='Password'  placeholderTextColor="grey" style={styles.input} onChangeText={(password) => setPassword(password)} secureTextEntry />
 
 
              </View>
 
              <View style={styles.buttonsContainer}>
 
-               <TouchableOpacity style={[styles.buttons, styles.loginButton]}>
+               <TouchableOpacity style={[styles.buttons, styles.loginButton]} onPress={login}>
                   <Text style={styles.boldText}> Continue </Text>
                </TouchableOpacity>
 
              </View>
         </View>
 
-             <View style={styles.logoContainer}>
-              
-                <View>
-                  <Image source={logo} style = {{ width: 150, height: 50 }}/>
-                </View>
-            
-             </View>
         </KeyboardAvoidingView>
+
+        <View style={baseStyle.logoContainer}>
+              
+              <View>
+                <Image source={logo} style = {{ width: 150, height: 50 }}/>
+              </View>
+          
+        </View>
 
     </ImageBackground>
   );
