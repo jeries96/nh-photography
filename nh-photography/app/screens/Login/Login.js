@@ -15,31 +15,36 @@ const backward = require("../../../assets/back.png");
 
 export default function Login({ navigation }) {
   
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
+  const [email, setEmail] = useState({})
+  const [password, setPassword] = useState({})
 
+  // Making sure the fonts loaded, if not renders app loading 
   let [fontsLoaded, error] = useFonts({ OpenSans_300Light, OpenSans_700Bold })
   if (!fontsLoaded) { return <AppLoading /> }
 
-// }
+  async function save(key, value) {
+    /* This function stores encrypt and securely store key–value pairs locally on the device */
+    await SecureStore.setItemAsync(key, value);
+  }
+
 
   // const login = () => {
-    
-  // fetch('https://demo.parklolo.com/api/login', {
-  //     method: "POST",
-  //     body: JSON.stringify({identifier:'admin', password:'admin'}),
-  //     headers: {
-  //         "Content-Type": "application/json",
-  //     },
-  // })
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //           await SecureStore.setItemAsync('secure_token', data.accessToken);
-  //           await SecureStore.getItemAsync('secure_token');
+  //     console.log('IN')
+  //     fetch('https://demo.parklolo.com/api/login', {
+  //         method: "POST",
+  //         body: JSON.stringify({identifier:'admin', password:'admin'}),
+  //         headers: {
+  //             "Content-Type": "application/json",
+  //         },
+  //     })
+  //         .then((res) => res.json())
+  //         .then((data) => {
+  //           console.log(data)
+  //           save('secure_token', data.accessToken)
 
-  //         }
-       
-  //     );
+  //             }
+          
+  //         );
   // }
 
   return (
@@ -82,7 +87,7 @@ export default function Login({ navigation }) {
 
              <View style={styles.buttonsContainer}>
 
-               <TouchableOpacity style={[styles.buttons, styles.loginButton]} onPress={login}>
+               <TouchableOpacity style={[styles.buttons, styles.loginButton]}>
                   <Text style={styles.boldText}> Continue </Text>
                </TouchableOpacity>
 
