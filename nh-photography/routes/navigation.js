@@ -20,6 +20,8 @@ export default function MyStack() {
 
     try {
       userToken = await AsyncStorage.getItem('token')
+
+    
       setToken(true)
 
     } catch (e) {
