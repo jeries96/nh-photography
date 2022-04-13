@@ -28,3 +28,56 @@ export default function App() {
     </NavigationContainer>
   );
 }
+
+
+
+
+/**
+ * Move to a file
+ */
+
+
+// const useCurrentUser = () => {
+//   const [currentUser, setCurrentUser] = useState();
+
+//   useEffect(() => {
+//     const loadProfile = async () => { 
+//       try {
+//         const user = await fetchProfile();
+//         setCurrentUser(user);
+//       } catch (e) {
+//         //TODO error
+//         console.log(e);
+//       }
+//     };
+//     loadProfile();
+//   }, []);
+
+//   return { currentUser };
+// };
+
+// export default useCurrentUser;
+
+
+
+
+
+// Example
+
+// export async function fetchProfile(userId: string): Promise<ProfileDataResponse> {
+//   const url = 'ping url'
+//   const response = await fetch(url, getFetchInit('GET'));
+
+//   if (!response.ok) {
+//     throw new Error('Error while fetching profile');
+//   }
+
+//   const json = await response.json();
+//   return json as ProfileDataResponse;
+// }
+
+
+
+
+
+
